@@ -2,14 +2,17 @@
   <v-container pb-0 pt-1>
     <form v-focusNextOnEnter>
       <v-layout row style="padding-top:10px;">
-        <v-flex xs12 md3 px-1>
-          <v-select :items="facultyItem" v-model="group" label="*คณะ :"/>
+        <v-flex xs12 md6 px-1>
+          <v-select :items="faculties" v-model="facultie" label="*คณะ :" v-on:change="selectedfac"/>
+        </v-flex>
+        <v-flex xs12 md6 px-1>
+          <v-select :items="departments" v-model="department" label="*ภาควิชา :" v-on:change="selecteddept"/>
         </v-flex>
       </v-layout>
 
       <v-layout row pt-1>
-        <v-flex xs3 px-1 pt-1>
-          <v-select :items="groupItem" v-model="group" label="*ภาควิชา :"/>
+        <v-flex xs12 md6 px-1 pt-1>
+          <v-select :items="devisions" v-model="devision" label="*ภาควิชา :"/>
         </v-flex>
         <v-flex xs3 px-1 pt-1>
           <v-select
@@ -59,8 +62,19 @@ export default {
   name: "CreateAdvisor",
   data() {
     return {
+      select: {
+        facultie: null,
+        department: null,
+        devision: null,
+        advisor: null,
+        curriculum: null
+      },
+      faculties: [],
+      departments: [],
+      devisions: [],
+      curriculums: [],
       // facultyItem: [
-      //   { text: "คณะฟนึ่ง", value: 1 },
+      //   { text: "คณะนึ่ง", value: 1 },
       //   { text: "4", value: 2 },
       //   { text: "คณะฟนึ่35ง", value: 3 },
       //   { text: "คณะฟนึ่4ง", value: 4 }
@@ -100,6 +114,7 @@ export default {
     }
   },
   mounted() {
+    this.fac();
     this.getFaculty();
   },
   computed: {
@@ -139,6 +154,62 @@ export default {
   // }
   // },
   methods: {
+    fac: function() {
+      const urlfac = "/testpro/connectfac.php";
+      axios
+        .post(urlfac) //ประเภทนักศึกษา
+        .then(response => {
+          this.faculties = this.faculties.concat(
+            response.data.map(data => ({
+              value: data.FAC_CODE,
+              text: data.FAC_CODE + " " + data.FAC_NAME
+            }))
+          );
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+    selectedfac(fac_code) {
+      //ภาควิชา
+      const urldept = "/testpro/connectdept.php";
+      const body = {
+        FAC_CODE: fac_code
+      };
+      axios
+        .post(urldept, body)
+        .then(response => {
+          this.departments = this.departments.slice(0, 1).concat(
+            response.data.map(data => ({
+              value: data.DEPT_CODE,
+              text: data.DEPT_CODE + " " + data.DEPT_NAME_THAI
+            }))
+          );
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+    selecteddept(dept_code) {
+      //สาขาวิชา
+      const urldiv = "/testpro/connectdiv.php";
+      const body = {
+        DEPT_CODE: dept_code
+      };
+      axios.post(urldiv, body).then(response => {
+        this.devisions = this.devisions.slice(0, 1).concat(
+          response.data.map(data => ({
+            value: data.DIV_CODE,
+            text:
+              data.DIV_CODE +
+              " " +
+              data.DIV_NAME_THAI +
+              " " +
+              data.DIV_SHRT_NAME
+          }))
+        );
+      });
+    },
     back() {
       this.setAction(null);
     },
