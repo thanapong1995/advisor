@@ -1,0 +1,41 @@
+/* Noto Sans Thai UI Web fonts - PAKIN.ME */
+
+@font-face {
+    font-family: 'NotoSansThaiUI';
+    src: url('subset-NotoSansThaiUI-Bold.woff2') format('woff2'),
+         url('subset-NotoSansThaiUI-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NotoSansThaiUI';
+    src: url('subset-NotoSansThaiUI-Regular.woff2') format('woff2'),
+         url('subset-NotoSansThaiUI-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NotoSerifThai';
+    src: url('subset-NotoSerifThai-Bold.woff2') format('woff2'),
+         url('subset-NotoSerifThai-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NotoSerifThai';
+    src: url('subset-NotoSerifThai-Regular.woff2') format('woff2'),
+         url('subset-NotoSerifThai-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CSChatThaiUI';
+    src: url('CSChatThaiUI.woff2') format('woff2'),
+         url('CSChatThaiUI.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
