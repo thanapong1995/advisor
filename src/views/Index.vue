@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <Header
-      system-name="Amphoe"
+      system-name="Advisor"
       work-place="หน่วยงานอาสารักษาดินแดน"
       position="Admin"
       background-color="indigo darken-2"
@@ -65,10 +65,10 @@ export default {
         },
         {
           action: "format_align_center",
-          title: "ส่วนล่างของเว็บไซต์",
+          title: "เปลี่ยนแปลงอาจารย์ที่ปรึกษา",
           subtitle: "ตราสัญลักษณ์ช่องทางการติดต่อสื่อสาร ฯลฯ",
           active: true,
-          click: "main",
+          click: "mainAdvisor",
           color: "pink darken-2",
           
 

@@ -15,7 +15,7 @@
                   <div>
                     <div class="headline">การจัดการข้อมูล</div>
                     <div class="headline">{{subItem.title}}</div>
-                    <span>{{subItem.subtitle}}</span>
+                    <!-- <span>{{subItem.subtitle}}</span> -->
                   </div>
                   <template>
                     <v-progress-linear

@@ -66,7 +66,7 @@
         </div>
       </template>
     </v-list>
-    
+    {{emp}}
     <v-list>
 <v-list-tile @click="onLogoutBtnClick" >
         <v-list-tile-action>

@@ -10,19 +10,20 @@
                   <v-flex style="display:flex; justify-content:space-between; flex-direction :column; height:100%">
                     <!-- <div class="bar"></div> -->
                     <v-flex class="text-xs-center">
-                      <v-avatar size="10rem" class="logo" style="margin-top:40px;">
-                        <h1 style="font-size: 34px">Amphoe</h1>
+                      <v-avatar size="15rem" class="logo" style="margin-top:40px;">
+                        <h1 style="font-size: 34px">ระบบอาจารย์ที่ปรึกษา</h1>
                         <!--<img src=".././assets/VDC_LOGO.png" alt="#">-->
                       </v-avatar>
                     </v-flex>
                     <v-layout >
                       <v-flex  offset-xs3 xs6>
-                        <v-text-field v-model="empPid" label="รหัสประจำตัวประชาชน" ></v-text-field>
+                        <v-text-field v-model="empUser" label="ชื่อผู้ใช้งาน " ></v-text-field>
                       </v-flex>
                     </v-layout>
+                
                     <v-layout mt-4>
                       <v-flex  offset-xs3 xs6>
-                        <v-text-field v-model="empPass" type='password' label="รหัสผ่าน" ></v-text-field>
+                        <!-- <v-text-field v-model="empPass" type='password' label="รหัสผ่าน" ></v-text-field> -->
                       </v-flex>
                     </v-layout>
                     <v-flex my-3 class="text-xs-center">
@@ -46,14 +47,14 @@
     methods: {
       ...mapActions('empStore',['login']),
       async onLoginBtnClick (){
-        const {empPid, empPass} = this
-        await this.login({EMP_PID: empPid, password: empPass})
+        const {empUser} = this
+        await this.login({EMP_USER: empUser}) 
+       
       }
     },
     data() {
       return {
-        empPid: null,
-        empPass: null
+        empUser: null,
       }
     },
   }

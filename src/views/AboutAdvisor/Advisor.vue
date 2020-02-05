@@ -5,7 +5,7 @@
         <v-tabs v-model="active">
           <v-tab :key="'จัดการข้อมูลอาจารย์ที่ปรึกษา'">จัดการข้อมูลอาจารย์ที่ปรึกษา</v-tab>
           <v-tab-item :key="'จัดการข้อมูลอาจารย์ที่ปรึกษา'">
-             <createAdvisor/>
+             <MainAdvisor/>
           </v-tab-item>
         </v-tabs>
       </v-flex>
@@ -18,7 +18,8 @@
 <script>
 // บันทึกข้อมูลผู้ใช้งานระบบ
 
-import createAdvisor from './CreateAdvisor.vue'
+import MainAdvisor from './MainAdvisor.vue'
+import CreateAdvisor from './CreateAdvisor.vue'
 import { mapState, mapActions } from 'vuex'
 export default {
   name: 'Advisor',
@@ -55,7 +56,7 @@ export default {
     
   },
   components: {
-    createAdvisor
+    MainAdvisor
   }
 }
 </script>
