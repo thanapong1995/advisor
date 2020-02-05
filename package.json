@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "agent": "^0.2.1",
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "core-js": "^2.6.5",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.16.0",
